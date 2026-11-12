@@ -1,0 +1,57 @@
+﻿MMV Studio 隨附的第三方軟體與授權
+Third-party software shipped with MMV Studio
+
+MMV Studio 是用下面這些自由軟體組成的。它們各自的授權條文放在安裝資料夾的 licenses 資料夾
+（開始選單捷徑→右鍵→開啟檔案位置，或 %LOCALAPPDATA%\Programs\MMV Studio\licenses）。
+This list is informational. Full license texts are in the "licenses" folder next to MMV-Studio.exe.
+
+────────────────────────────────────────
+1. libmpv（播放引擎） — LGPL v2.1 or later
+────────────────────────────────────────
+檔案：libmpv-2.dll（安裝資料夾的 _internal 裡）
+來源：zhongfly/mpv-winbuild release 2026-09-25-35af06172b 的 LGPL 建置
+      https://github.com/zhongfly/mpv-winbuild/releases/tag/2026-09-25-35af06172b
+      mpv 原始碼：https://github.com/mpv-player/mpv （v0.41.0-1078-g35af06172）
+      內含的 FFmpeg 程式庫：https://ffmpeg.org/ （N-126870-g243dfa399）
+授權：建置參數 -Dgpl=false，所以整個 libmpv 是 LGPL（不是 GPL）。全文見 LGPL-2.1.txt。
+MMV Studio 以「動態連結」使用 libmpv：你可以用自己編譯的、相容的 libmpv-2.dll 取代
+安裝資料夾裡的那個檔案（放進 _internal 資料夾，蓋掉原檔），MMV Studio 會改用你的版本。
+原始碼可從上面的網址取得；若無法取得，聯絡 MMV 索取，我們會提供。
+
+────────────────────────────────────────
+2. FFmpeg（轉檔、切片、推流） — GPL v3
+────────────────────────────────────────
+檔案：ffmpeg.exe、ffprobe.exe（安裝資料夾的 _internal\ffmpeg 裡）
+說明：這兩個是獨立的執行檔，MMV Studio 把它們當成另一個程式去呼叫（不是連結進 MMV Studio）。
+      因為 Studio 用 libx264 編碼，這份 FFmpeg 是 GPL 建置（含 x264）。GPL 只適用於這兩個
+      執行檔本身，全文見 GPL-3.0.txt。
+來源與版本：見 FFMPEG_BUILD.txt（建置安裝包時由腳本寫入：版本、建置參數、下載網址）。
+原始碼：https://ffmpeg.org/download.html 與該建置提供者網站所列的對應原始碼，
+      x264：https://www.videolan.org/developers/x264.html
+      若無法取得，聯絡 MMV 索取，我們會提供（至少保留三年）。
+
+────────────────────────────────────────
+3. Qt 與 PySide6（視窗介面） — LGPL v3
+────────────────────────────────────────
+檔案：_internal\PySide6\、_internal\shiboken6\ 底下的 Qt 程式庫（*.dll）
+授權：以 LGPL v3 使用（PySide6 的授權是 LGPL-3.0 / GPL-2.0 / GPL-3.0 擇一）。全文見
+      LGPL-3.0.txt 與它引用的 GPL-3.0.txt。Qt 與 PySide6 都是動態程式庫，可以替換。
+原始碼：https://code.qt.io/ 與 https://code.qt.io/cgit/pyside/pyside-setup.git/
+
+────────────────────────────────────────
+4. python-mpv（Python 與 libmpv 的橋） — GPL v2+ 或 LGPL v2.1+（擇一，我們採 LGPL）
+────────────────────────────────────────
+https://github.com/jaseg/python-mpv 全文見 LGPL-2.1.txt。
+
+────────────────────────────────────────
+5. 其他（寬鬆授權，要求保留版權聲明）
+────────────────────────────────────────
+Python 3.12（PSF License）、httpx 與它的相依套件（BSD-3-Clause）、keyring（MIT）、
+Pillow（MIT-CMU）、PyInstaller 的啟動程式（GPL v2+，附「可用於發佈非自由軟體」的例外條款）。
+這些套件的授權文字在各自的套件裡（安裝資料夾 _internal 內的 *.dist-info 資料夾）。
+
+────────────────────────────────────────
+關於 MMV Studio 本身
+────────────────────────────────────────
+這份文字只列第三方軟體。MMV 平台的使用條款、隱私與其他法律文件以 MMV 網站公布的為準，
+不在這個安裝程式裡。

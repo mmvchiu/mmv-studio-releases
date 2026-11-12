@@ -1,0 +1,27 @@
+MMV Studio 0.1.2（macOS arm64，未簽章、未公證）
+建置日期：2026-11-13
+
+libmpv：~/mmv-build/prefix/lib/libmpv.2.dylib
+來源：自己編譯（packaging/build_lgpl_libmpv_macos.sh）
+授權：LGPL-2.1-or-later（-Dgpl=false；連到的 FFmpeg 程式庫是 --disable-gpl 的建置）
+mpv：mpv v0.41.0 Copyright © 2000-2025 mpv/MPlayer/mplayer2 projects
+
+FFmpeg：ffmpeg version 9.0.2 Copyright (c) 2000-2026 the FFmpeg developers（獨立執行檔，GPL v3）
+來源：自己編譯（packaging/build_lgpl_libmpv_macos.sh）（~/mmv-build/prefix-gpl/bin）
+
+一起打包的動態程式庫（13 個）：
+  ~/mmv-build/prefix/lib/libass.9.dylib
+  ~/mmv-build/prefix/lib/libavcodec.63.dylib
+  ~/mmv-build/prefix/lib/libavfilter.12.dylib
+  ~/mmv-build/prefix/lib/libavformat.63.dylib
+  ~/mmv-build/prefix/lib/libavutil.61.dylib
+  ~/mmv-build/prefix/lib/libdav1d.7.dylib
+  ~/mmv-build/prefix/lib/libfreetype.6.dylib
+  ~/mmv-build/prefix/lib/libfribidi.0.dylib
+  ~/mmv-build/prefix/lib/libharfbuzz.0.dylib
+  ~/mmv-build/prefix/lib/libmpv.2.dylib
+  ~/mmv-build/prefix/lib/libplacebo.360.dylib
+  ~/mmv-build/prefix/lib/libswresample.7.dylib
+  ~/mmv-build/prefix/lib/libswscale.10.dylib
+
+最低 macOS：15.0（QtConcurrent.abi3.so 要求的）

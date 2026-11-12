@@ -1,0 +1,65 @@
+MMV Studio（macOS 版）隨附的第三方軟體與授權
+Third-party software shipped with MMV Studio for macOS
+
+這份清單是參考用。授權全文在同一個 licenses 資料夾（MMV Studio.app 上按右鍵→顯示套件內容→
+Contents→Resources→licenses）。這一次建置用了哪些版本、哪些動態程式庫，寫在 BUILD_INFO.txt。
+This list is informational. Full texts are in this "licenses" folder; BUILD_INFO.txt lists the exact build.
+
+────────────────────────────────────────
+1. libmpv（播放引擎）與它用到的程式庫 — LGPL-2.1 or later（以及更寬鬆的授權）
+────────────────────────────────────────
+檔案：MMV Studio.app/Contents/Frameworks/ 裡的 libmpv.2.dylib、libavcodec／libavformat／libavfilter／
+      libavutil／libswresample／libswscale（FFmpeg 程式庫）、libplacebo、libass、libharfbuzz、
+      libfreetype、libfribidi、libdav1d
+來源：全部是這個專案自己用原始碼編譯的（packaging/build_lgpl_libmpv_macos.sh，每個原始碼壓縮檔都核對
+      SHA256，最低 macOS 13.0）：
+        mpv 0.41.0（-Dgpl=false，LGPL-2.1-or-later）        https://github.com/mpv-player/mpv
+        FFmpeg 9.0.2 程式庫（--disable-gpl --disable-nonfree，LGPL-2.1-or-later）  https://ffmpeg.org/
+        libplacebo 7.360.1（LGPL-2.1-or-later）              https://code.videolan.org/videolan/libplacebo
+        libass 0.17.5（ISC）                                 https://github.com/libass/libass
+        HarfBuzz 14.6.0（MIT）                               https://github.com/harfbuzz/harfbuzz
+        FreeType 2.14.3（FreeType License）                  https://freetype.org/
+        FriBidi 1.0.17（LGPL-2.1-or-later）                  https://github.com/fribidi/fribidi
+        dav1d 1.5.4（BSD-2-Clause）                          https://code.videolan.org/videolan/dav1d
+      這些程式庫裡**沒有任何 GPL 的元件**（沒有 x264、x265、rubberband 等）。各自的授權全文在同一個
+      licenses 資料夾（LICENSE-*.txt、LGPL-2.1.txt、LGPL-3.0.txt）。
+LGPL 的義務：MMV Studio 以「動態連結」使用這些程式庫：你可以用自己編譯的、相容的版本取代
+      Frameworks 裡的檔案（取代之後 App 的簽名會失效，要重簽：
+      codesign --force --deep --sign - "/Applications/MMV Studio.app"），MMV Studio 會改用你的版本。
+      原始碼取得：上面的網址；若無法取得，聯絡 MMV 索取，我們會提供（至少保留三年）。
+
+────────────────────────────────────────
+2. FFmpeg（轉檔、切片、推流） — GPL v3
+────────────────────────────────────────
+檔案：Contents/Frameworks/ffmpeg/ffmpeg、ffprobe（以及它們依賴的 libav* 等動態程式庫）
+說明：這兩個是獨立的執行檔，MMV Studio 把它們當成另一個程式去呼叫。因為 Studio 用 libx264 編碼，
+      這份 FFmpeg 是 GPL 建置（含 x264）。GPL 只適用於這兩個執行檔本身，全文見 GPL-3.0.txt。
+來源與版本：見 BUILD_INFO.txt（版本、來源；自己編譯的做法是 packaging/build_lgpl_libmpv_macos.sh：FFmpeg ＋ x264 ＋ OpenSSL 靜態連結成獨立的執行檔，只依賴 macOS 系統程式庫）。
+原始碼：https://ffmpeg.org/download.html ，x264：https://www.videolan.org/developers/x264.html ，
+      OpenSSL：https://www.openssl.org/source/
+      若無法取得，聯絡 MMV 索取，我們會提供（至少保留三年）。
+
+────────────────────────────────────────
+3. Qt 與 PySide6（視窗介面） — LGPL v3
+────────────────────────────────────────
+檔案：Contents/Frameworks/PySide6、shiboken6 底下的 Qt 程式庫
+授權：以 LGPL v3 使用（PySide6 是 LGPL-3.0 / GPL-2.0 / GPL-3.0 擇一）。全文見 LGPL-3.0.txt 與它引用的
+      GPL-3.0.txt。Qt 與 PySide6 都是動態程式庫，可以替換。
+原始碼：https://code.qt.io/ 與 https://code.qt.io/cgit/pyside/pyside-setup.git/
+
+────────────────────────────────────────
+4. python-mpv — GPL v2+ 或 LGPL v2.1+（擇一，採 LGPL）
+────────────────────────────────────────
+https://github.com/jaseg/python-mpv
+
+────────────────────────────────────────
+5. 其餘
+────────────────────────────────────────
+Python（PSF）、httpx 與它的相依套件（BSD／MIT）、keyring（MIT）、Pillow（MIT-CMU）、
+certifi（MPL-2.0）、PyInstaller 的啟動程式（GPL-2.0 加例外，允許用於任何程式）。
+
+────────────────────────────────────────
+關於「未簽章、未公證」
+────────────────────────────────────────
+這個 App 沒有 Apple 的開發者簽章與公證（要付 Apple 開發者計畫年費），只有免費的 ad-hoc 簽名。
+第一次開啟要照「第一次開啟請先看我.txt」做。

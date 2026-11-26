@@ -2,7 +2,7 @@
 
 依 GPL v3 與 LGPL 的要求，下列是隨 MMV Studio 散布的自由軟體元件的對應原始碼。若下列網址無法取得，請到 https://mmv.tw 聯絡我們索取，我們會提供（至少保留三年）。
 
-## Mac 版（studio-v0.1.2，MMV-Studio-0.1.2-mac-arm64.dmg）
+## Mac 版（studio-v0.1.3，MMV-Studio-0.1.3-mac-arm64.dmg）
 
 自己編譯，編譯腳本：[build-scripts/build_lgpl_libmpv_macos.sh](build-scripts/build_lgpl_libmpv_macos.sh)（下載、雜湊核對、建置參數都在裡面）。
 
@@ -20,7 +20,7 @@
 | FreeType | 2.14.3 | FreeType License | https://downloads.sourceforge.net/project/freetype/freetype2/2.14.3/freetype-2.14.3.tar.xz |
 | FriBidi | 1.0.17 | LGPL v2.1+ | https://github.com/fribidi/fribidi/releases/download/v1.0.17/fribidi-1.0.17.tar.xz |
 
-## Windows 版（studio-v0.1.2，MMV-Studio-Setup-0.1.2.exe）
+## Windows 版（studio-v0.1.3，MMV-Studio-Setup-0.1.3.exe）
 
 | 元件 | 版本 | 授權 | 原始碼 |
 |---|---|---|---|
@@ -35,3 +35,5 @@
 |---|---|---|
 | Qt 6／PySide6 | LGPL v3 | https://code.qt.io/ 、https://code.qt.io/cgit/pyside/pyside-setup.git/ |
 | python-mpv | LGPL v2.1+（擇一授權，採 LGPL） | https://github.com/jaseg/python-mpv |
+
+舊版 0.1.2 與 0.1.3 用的是同一批元件版本，上表同樣適用。

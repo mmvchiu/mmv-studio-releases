@@ -9,8 +9,8 @@ MMV Studio 是 MMV（mmv.tw）的桌機導播軟體。這個資料庫只放安�
 - **Windows 10／11（64 位元）**：執行安裝檔時若出現 SmartScreen「Windows 已保護您的電腦」，按 **「其他資訊」→「仍要執行」**。
 
 下載後可以比對 SHA256（Release 頁與 mmv.tw/studio 都有寫）：
-- Mac：`shasum -a 256 MMV-Studio-0.1.2-mac-arm64.dmg`
-- Windows：`certutil -hashfile MMV-Studio-Setup-0.1.2.exe SHA256`
+- Mac：`shasum -a 256 MMV-Studio-0.1.3-mac-arm64.dmg`
+- Windows：`certutil -hashfile MMV-Studio-Setup-0.1.3.exe SHA256`
 
 ## 授權與第三方軟體
 
